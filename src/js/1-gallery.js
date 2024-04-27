@@ -1,40 +1,50 @@
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+// Імпорт бібліотеки SimpleLightbox і стилів
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
-// Масив зображень для галереї
+// Масив зображень
 const images = [
-    { preview: 'images/image1-small.jpg', original: 'images/image1-large.jpg', description: 'Image 1' },
-    { preview: 'images/image2-small.jpg', original: 'images/image2-large.jpg', description: 'Image 2' },
-    { preview: 'images/image3-small.jpg', original: 'images/image3-large.jpg', description: 'Image 3' },
+    {
+        preview: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
+        original: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg',
+        description: 'Hokkaido Flower',
+    },
+    {
+        preview: 'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677__340.jpg',
+        original: 'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677_1280.jpg',
+        description: 'Container Haulage Freight',
+    },
+    {
+        preview: 'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785__340.jpg',
+        original: 'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785_1280.jpg',
+        description: 'Aerial Beach View',
+    },
+    
 ];
 
-// Створення елементів галереї
+// Отримання контейнера галереї
 const galleryContainer = document.querySelector('.gallery');
 
-const createGalleryItems = (images) => {
-    return images
-        .map(({ preview, original, description }) => {
-            return `
-                <li class="gallery-item">
-                    <a class="gallery-link" href="${original}">
-                        <img 
-                            class="gallery-image" 
-                            src="${preview}" 
-                            alt="${description}" 
-                        />
-                    </a>
-                </li>
-            `;
-        })
-        .join('');
-};
+// Створення розмітки для галереї
+const galleryMarkup = images.map((image) => {
+    return `
+        <li class="gallery-item">
+            <a class="gallery-link" href="${image.original}">
+                <img 
+                    class="gallery-image" 
+                    src="${image.preview}" 
+                    alt="${image.description}" 
+                />
+            </a>
+        </li>
+    `;
+}).join('');
 
-// Додавання елементів галереї в контейнер
-galleryContainer.innerHTML = createGalleryItems(images);
+// Додавання розмітки до DOM
+galleryContainer.innerHTML = galleryMarkup;
 
 // Ініціалізація SimpleLightbox
 const lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-    captionPosition: 'bottom',
+    captionsData: 'alt', // Відображення підписів із атрибута alt
+    captionDelay: 250,   // Затримка відображення підписів
 });
