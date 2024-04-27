@@ -41,7 +41,7 @@ form.addEventListener('submit', (event) => {
         return;
     }
 
-    console.log(formData); // Виводимо дані форми в консоль
+    console.log(formData); 
     
     // Очищуємо локальне сховище та поля форми
     localStorage.removeItem(FORM_STORAGE_KEY);
@@ -50,5 +50,5 @@ form.addEventListener('submit', (event) => {
     form.email.value = "";
     form.message.value = "";
 
-    // Можна виконати додаткові дії, наприклад, надсилання даних на сервер
+    
 });

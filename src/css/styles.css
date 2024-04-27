@@ -52,3 +52,60 @@
 .gallery-image:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
+
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; 
+}
+
+/* Стилізація форми */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+  background: #fff; 
+  padding: 20px; 
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  width: 300px; 
+}
+
+/* Стилізація міток */
+.feedback-form label {
+  font-size: 14px; 
+  font-weight: bold; 
+  color: #333; 
+}
+
+/* Стилізація полів вводу */
+.feedback-form input,
+.feedback-form textarea {
+  font-size: 14px; 
+  border: 1px solid #ccc;
+  border-radius: 5px; 
+  padding: 8px; 
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+/* Стилізація кнопки */
+.feedback-form button {
+  background: #4CAF50;
+  color: #fff; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px; 
+  font-size: 14px;
+  cursor: pointer; 
+}
+
+.feedback-form button:hover {
+  background: #45a049; 
+}
