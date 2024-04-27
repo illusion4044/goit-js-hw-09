@@ -1,46 +1,40 @@
-import SimpleLightbox from 'simplelightbox'; // Імпорт бібліотеки
-import 'simplelightbox/dist/simple-lightbox.min.css'; // Імпорт CSS
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
+// Масив зображень для галереї
 const images = [
-    {
-        preview: 'https://via.placeholder.com/150', // Посилання на мініатюру
-        original: 'https://via.placeholder.com/600', // Посилання на велике зображення
-        description: 'Image 1', // Опис зображення
-    },
-    {
-        preview: 'https://via.placeholder.com/150', // Посилання на мініатюру
-        original: 'https://via.placeholder.com/600', // Посилання на велике зображення
-        description: 'Image 2', // Опис зображення
-    },
-    // Додайте більше зображень за необхідності
+    { preview: 'images/image1-small.jpg', original: 'images/image1-large.jpg', description: 'Image 1' },
+    { preview: 'images/image2-small.jpg', original: 'images/image2-large.jpg', description: 'Image 2' },
+    { preview: 'images/image3-small.jpg', original: 'images/image3-large.jpg', description: 'Image 3' },
 ];
 
-// Функція для створення розмітки галереї
-function createGalleryMarkup(images) {
-    return images
-        .map(
-            (image) => `
-        <li class="gallery-item">
-            <a class="gallery-link" href="${image.original}">
-                <img
-                    class="gallery-image"
-                    src="${image.preview}"
-                    alt="${image.description}"
-                />
-            </a>
-        </li>
-    `
-        )
-        .join(''); // Приєднати всі елементи галереї в одну строку
-}
-
-// Динамічне створення галереї
+// Створення елементів галереї
 const galleryContainer = document.querySelector('.gallery');
-galleryContainer.innerHTML = createGalleryMarkup(images);
+
+const createGalleryItems = (images) => {
+    return images
+        .map(({ preview, original, description }) => {
+            return `
+                <li class="gallery-item">
+                    <a class="gallery-link" href="${original}">
+                        <img 
+                            class="gallery-image" 
+                            src="${preview}" 
+                            alt="${description}" 
+                        />
+                    </a>
+                </li>
+            `;
+        })
+        .join('');
+};
+
+// Додавання елементів галереї в контейнер
+galleryContainer.innerHTML = createGalleryItems(images);
 
 // Ініціалізація SimpleLightbox
-const galleryLightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt', // Використовувати alt як підпис
-    captionPosition: 'bottom', // Позиція підпису
-    captionDelay: 250, // Затримка відображення підпису
+const lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
+    captionPosition: 'bottom',
 });
