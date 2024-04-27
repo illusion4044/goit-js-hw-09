@@ -23,3 +23,32 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+.gallery {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.gallery-item {
+  margin: 10px;
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+.gallery-link {
+  text-decoration: none;
+}
+.gallery-image {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+  transition: box-shadow 0.3s;
+}
+
+.gallery-image:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
