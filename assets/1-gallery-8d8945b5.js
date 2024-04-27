@@ -9,4 +9,4 @@ import{S as i}from"./vendor-10cb7c31.js";const o=[{preview:"https://cdn.pixabay.
             </a>
         </li>
     `).join("");e.innerHTML=t;new i(".gallery a",{captionsData:"alt",captionDelay:250});
-//# sourceMappingURL=1-gallery-81861b4e.js.map
+//# sourceMappingURL=1-gallery-8d8945b5.js.map
