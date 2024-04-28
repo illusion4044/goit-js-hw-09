@@ -1,4 +1,3 @@
-// Імпорт бібліотеки SimpleLightbox і стилів
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
@@ -19,33 +18,36 @@ const images = [
         original: 'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785_1280.jpg',
         description: 'Aerial Beach View',
     },
-     
-    
 ];
 
 // Отримання контейнера галереї
 const galleryContainer = document.querySelector('.gallery');
 
-// Створення розмітки для галереї
-const galleryMarkup = images.map((image) => {
-    return `
-        <li class="gallery-item">
-            <a class="gallery-link" href="${image.original}">
-                <img 
-                    class="gallery-image" 
-                    src="${image.preview}" 
-                    alt="${image.description}" 
-                />
-            </a>
-        </li>
-    `;
-}).join('');
+// Переконайтесь, що контейнер існує
+if (galleryContainer) {
+    // Створення розмітки для галереї
+    const galleryMarkup = images.map((image) => {
+        return `
+            <li class="gallery-item">
+                <a class="gallery-link" href="${image.original}">
+                    <img 
+                        class="gallery-image" 
+                        src="${image.preview}" 
+                        alt="${image.description}" 
+                    />
+                </a>
+            </li>
+        `;
+    }).join('');
 
-// Додавання розмітки до DOM
-galleryContainer.innerHTML = galleryMarkup;
+    // Додавання розмітки до DOM
+    galleryContainer.innerHTML = galleryMarkup;
 
-// Ініціалізація SimpleLightbox
-const lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt', // Відображення підписів із атрибута alt
-    captionDelay: 250,   // Затримка відображення підписів
-});
+    
+    new SimpleLightbox('.gallery a', {
+        captionsData: 'alt', // Відображення підписів із атрибута alt
+        captionDelay: 250,   // Затримка відображення підписів
+    });
+} else {
+    console.warn('Gallery container not found.');
+}
