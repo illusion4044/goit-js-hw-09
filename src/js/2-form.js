@@ -1,6 +1,6 @@
 const storageKey = "feedback-form-state";
 
-// Отримуємо форму з DOM
+// DOM
 const form = document.querySelector('.feedback-form');
 
 
@@ -11,7 +11,7 @@ if (form) {
         message: ""
     };
 
-    // Відновлюємо дані з локального сховища
+    // Відновлення даних з локального сховища
     const savedData = localStorage.getItem(storageKey);
     if (savedData) {
         const parsedData = JSON.parse(savedData);

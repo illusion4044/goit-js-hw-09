@@ -23,9 +23,8 @@ const images = [
 // Отримання контейнера галереї
 const galleryContainer = document.querySelector('.gallery');
 
-// Переконайтесь, що контейнер існує
 if (galleryContainer) {
-    // Створення розмітки для галереї
+    
     const galleryMarkup = images.map((image) => {
         return `
             <li class="gallery-item">
