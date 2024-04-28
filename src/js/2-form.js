@@ -1,5 +1,5 @@
-// Ключ для локального сховища
-const FORM_STORAGE_KEY = "feedback-form-state";
+
+const storageKey = "feedback-form-state";
 
 // Початковий об'єкт formData
 const formData = {
@@ -10,8 +10,8 @@ const formData = {
 // Отримуємо форму з DOM
 const form = document.querySelector('.feedback-form');
 
-// Відновлюємо дані з локального сховища, якщо вони є
-const savedData = localStorage.getItem(FORM_STORAGE_KEY);
+// Відновлюємо дані з локального сховища
+const savedData = localStorage.getItem(storageKey);
 if (savedData) {
     const parsedData = JSON.parse(savedData);
     if (parsedData.email) {
@@ -28,7 +28,7 @@ if (savedData) {
 form.addEventListener('input', (event) => {
     const name = event.target.name;
     formData[name] = event.target.value.trim(); // Зберігаємо значення без пробілів по краях
-    localStorage.setItem(FORM_STORAGE_KEY, JSON.stringify(formData));
+    localStorage.setItem(storageKey, JSON.stringify(formData));
 });
 
 // Обробка відправлення форми
@@ -44,7 +44,7 @@ form.addEventListener('submit', (event) => {
     console.log(formData); 
     
     // Очищуємо локальне сховище та поля форми
-    localStorage.removeItem(FORM_STORAGE_KEY);
+    localStorage.removeItem(storageKey);
     formData.email = "";
     formData.message = "";
     form.email.value = "";
