@@ -48,6 +48,4 @@ if (galleryContainer) {
         captionsData: 'alt', // Відображення підписів із атрибута alt
         captionDelay: 250,   // Затримка відображення підписів
     });
-} else {
-    console.warn('Gallery container not found.');
 }

@@ -51,6 +51,4 @@ if (form) {
         form.email.value = "";
         form.message.value = "";
     });
-} else {
-    console.warn('Feedback form not found.');
-}
+} 
