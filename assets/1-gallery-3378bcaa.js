@@ -8,5 +8,5 @@ import{S as e}from"./vendor-10cb7c31.js";const t=[{preview:"https://cdn.pixabay.
                     />
                 </a>
             </li>
-        `).join("");i.innerHTML=o,new e(".gallery a",{captionsData:"alt",captionDelay:250})}else console.warn("Gallery container not found.");
-//# sourceMappingURL=1-gallery-54d09846.js.map
+        `).join("");i.innerHTML=o,new e(".gallery a",{captionsData:"alt",captionDelay:250})}
+//# sourceMappingURL=1-gallery-3378bcaa.js.map
